@@ -16,6 +16,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".widgets.NewAppWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
+
+        <receiver android:name=".receivers.MusicReceiver">
+            <intent-filter>
+                <action android:name="creatic.play"/>
+                <action android:name="creatic.pause"/>
+                <action android:name="creatic.stop"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".services.MusicService"
+            android:exported="false" android:enabled="true"
+            />
+
     </application>
 
 </manifest>
